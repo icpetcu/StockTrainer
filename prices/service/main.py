@@ -1,3 +1,4 @@
+import os
 import motor
 import tornado.ioloop
 import tornado.web
@@ -13,7 +14,20 @@ class MainHandler(tornado.web.RequestHandler):
         self.write('Hello world!')
 
 def main():
-    db = motor.motor_tornado.MotorClient().test
+    db_name = os.environ.get('DB_NAME', 'test')
+    db_host = os.environ.get('DB_HOST', 'localhost')
+    db_port = os.environ.get('DB_PORT', '27017')
+    db_user = os.environ.get('DB_USER', '')
+    db_password = os.environ.get('DB_PASSWORD', '')
+
+    credentials = None if not db_user else '{0}:{1}@'.format(db_user, db_password)
+    if credentials is not None:
+        db_url = 'mongodb://{0}{1}:{2}/{3}'.format(credentials, db_host, db_port, db_name)
+        db = motor.motor_tornado.MotorClient(db_url)
+    else:
+        db_url = 'mongodb://{0}:{1}/'.format(db_host, db_port)
+        db = motor.motor_tornado.MotorClient(db_url)[db_name]
+
     app = tornado.web.Application([
         (r"/stream", StreamHandler),
         (r"/", MainHandler),
