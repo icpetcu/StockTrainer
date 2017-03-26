@@ -2,17 +2,18 @@
   "name": "stock_trainer_ui",
   "version": "1.0.0",
   "description": "Disertation Project",
-  "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --port 3000"
   },
   "author": "Ion Petcu",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.2",
+    "auth0-lock": "^10.13.0",
+    "jwt-decode": "^2.2.0",
     "path": "^0.12.7",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router": "^4.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
