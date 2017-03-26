@@ -6,4 +6,4 @@
 portfolio/venv/
 prices/venv/
 prices/service/aws_config.py
-
+ui/node_modules/

@@ -44,7 +44,7 @@ def main():
     app.listen(8003)
 
     io_loop = tornado.ioloop.IOLoop.current()
-    motorengine.connect("test", host="localhost", port=27017, io_loop=io_loop)
+    motorengine.connect("test", host="10.200.10.1", port=27017, io_loop=io_loop)
     io_loop.start()
 
 
