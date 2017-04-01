@@ -22,7 +22,7 @@ export class Portfolio extends React.Component {
                 <div>
                     <table className="w3-table w3-striped w3-border w3-bordered w3-hoverable">
                         <thead>
-                            <tr className="w3-blue">
+                            <tr className="w3-teal">
                                 <th>Stock</th>
                                 <th>Units</th>
                                 <th>Price</th>
