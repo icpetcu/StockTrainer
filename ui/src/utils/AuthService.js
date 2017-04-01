@@ -3,7 +3,7 @@ import {isTokenExpired} from './jwtHelper'
 import Auth0Lock from 'auth0-lock'
 
 
-export default class AuthService extends EventEmitter {
+class AuthServiceModel extends EventEmitter {
     constructor(clientId, domain) {
         super();
 
@@ -90,3 +90,6 @@ export default class AuthService extends EventEmitter {
         location.reload();
     }
 }
+
+const AuthService = new AuthServiceModel('3uVwhSDS6b7q1eUazWlz3FHJYnCNOobL', 'icpetcu.eu.auth0.com');
+export default AuthService;
