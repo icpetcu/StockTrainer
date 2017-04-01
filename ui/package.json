@@ -9,11 +9,11 @@
   "license": "ISC",
   "dependencies": {
     "auth0-lock": "^10.13.0",
-    "chart.js": "^1.1.1",
+    "chart.js": "^2.5.0",
     "jwt-decode": "^2.2.0",
     "path": "^0.12.7",
     "react": "^15.4.2",
-    "react-chartjs": "^0.8.0",
+    "react-chartjs-2": "^2.0.5",
     "react-dom": "^15.4.2"
   },
   "devDependencies": {

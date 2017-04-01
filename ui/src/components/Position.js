@@ -23,9 +23,9 @@ export class Position extends React.Component {
                 <td>
                     <input type="text" placeholder="units" maxLength="4" style={{width: '50px'}}
                            value={this.state.units} onChange={this.onUnitsChange.bind(this)} />
-                    <input type="button" className="w3-button w3-green"
+                    <input type="button" className="w3-btn w3-green"
                            style={{marginLeft: '5px'}} value="&#8679;" />
-                    <input type="button" className="w3-button w3-red"
+                    <input type="button" className="w3-btn w3-red"
                            style={{marginLeft: '5px'}} value="&#8681;" />
                 </td>
             </tr>

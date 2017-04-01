@@ -17,7 +17,7 @@ export class Header extends React.Component {
                 <div className="w3-right">
                     <span className="w3-margin-right"> Welcome back, {this.getName()}! </span>
                     <button onClick={AuthService.logout.bind(this)}
-                            className="w3-btn w3-deep-orange">
+                            className="w3-button w3-deep-orange">
                         Log Out
                     </button>
                 </div>

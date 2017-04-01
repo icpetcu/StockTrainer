@@ -13,7 +13,7 @@ export class Portfolio extends React.Component {
             <div>
                 <div>
                     <span className="w3-xlarge w3-left"> Cash: $1,000,000</span>
-                    <button className="w3-button w3-deep-orange w3-right"> Reset Portfolio </button>
+                    <button className="w3-btn w3-deep-orange w3-right"> Reset Portfolio </button>
                 </div>
 
                 <br />
