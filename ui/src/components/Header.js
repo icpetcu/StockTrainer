@@ -15,7 +15,7 @@ export class Header extends React.Component {
             <div className="w3-container w3-black w3-padding">
                 <div className="w3-left w3-xlarge"> STOCK TRAINER</div>
                 <div className="w3-right">
-                    <span className="w3-margin-right"> Welcome back, {this.getName()} </span>
+                    <span className="w3-margin-right"> Welcome back, {this.getName()}! </span>
                     <button onClick={AuthService.logout.bind(this)}
                             className="w3-btn w3-deep-orange">
                         Log Out

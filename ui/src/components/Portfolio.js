@@ -1,5 +1,5 @@
 import React from 'react'
-import Position from '../components/Position'
+import Position from './Position'
 
 
 export class Portfolio extends React.Component {

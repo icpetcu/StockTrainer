@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
+import NewsContainer from '../components/NewsContainer'
 import Portfolio from '../components/Portfolio'
 
 
@@ -17,6 +18,8 @@ export class Main extends React.Component {
 
                     <div className="w3-col m4 w3-center">
                         <Portfolio />
+                        <hr />
+                        <NewsContainer />
                     </div>
 
                     <div className="w3-col m4 w3-center">
