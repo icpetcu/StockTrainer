@@ -1,0 +1,9 @@
+
+body, html, #root {height: 100%}
+
+.landing {
+    /*background-image: url('../img/background.jpg');*/
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}

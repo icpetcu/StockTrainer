@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import AuthService from '../utils/AuthService'
 import Main from '../views/Main'
 import Login from '../views/Login'

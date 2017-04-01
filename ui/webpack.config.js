@@ -28,7 +28,9 @@ module.exports = {
     module: {
         rules: [
             {test: /\.js$/, use: ['babel-loader'], exclude: /node_modules/},
-            {test: /\.css$/, use: ['style-loader', 'css-loader?modules', 'postcss-loader']}
+            {test: /\.css$/, use: ['style-loader', 'css-loader']},
+            {test: /\.(png|jpg|woff|woff2|ico|gif)$/, use: ['url-loader?limit=8192']},
+            {test: /\.(ttf|otf|svg|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/, use: ['file-loader']}
         ]
     },
 
