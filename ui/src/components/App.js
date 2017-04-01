@@ -5,8 +5,16 @@ import Login from '../views/Login'
 
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            'view': AuthService.loggedIn() ? 'main' : 'landing'
+        };
+        AuthService.on('profile_updated', () => this.setState({'view': 'main'}));
+    }
+
     render () {
-        return AuthService.loggedIn() ? <Main /> : <Login />;
+        return this.state.view == 'main' ? <Main /> : <Login />;
     }
 }
 

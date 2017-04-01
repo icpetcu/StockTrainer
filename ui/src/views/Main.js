@@ -1,14 +1,29 @@
 import React from 'react'
-import AuthService from '../utils/AuthService'
+import Header from '../components/Header'
+import Portfolio from '../components/Portfolio'
 
 
 export class Main extends React.Component {
     
     render() {
         return (
-            <div>
-                <h2>Hello after login!</h2>
-                <button onClick={AuthService.logout.bind(this)}>Log Out</button>
+            <div style={{height: '100%'}}>
+                <Header />
+
+                <div className="w3-row w3-padding-24">
+                    <div className="w3-col m4 w3-center">
+                        Left
+                    </div>
+
+                    <div className="w3-col m4 w3-center">
+                        <Portfolio />
+                    </div>
+
+                    <div className="w3-col m4 w3-center">
+                        Right
+                    </div>
+
+                </div>
             </div>
         )
     }

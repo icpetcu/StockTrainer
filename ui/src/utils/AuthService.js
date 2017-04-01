@@ -30,17 +30,14 @@ class AuthServiceModel extends EventEmitter {
         // Saves the user token
         this.setToken(authResult.idToken);
 
-        // navigate to the home route
-        location.reload();
-
         // Async loads the user profile data
         this.lock.getUserInfo(authResult.accessToken, (error, profile) => {
             if (error) {
                 console.log('Error loading the Profile', error)
             } else {
-                this.setProfile(profile)
+                this.setProfile(profile);
             }
-        })
+        });
     }
 
     _authorizationError(error) {
