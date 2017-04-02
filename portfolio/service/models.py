@@ -16,7 +16,8 @@ class Position(motorengine.Document):
         else:
             pnl = 0
             total_units = self.units + units
-            self.price = (self.units * float(self.price) + units * price) / total_units
+            price = (self.units * float(self.price) + units * price) / total_units
+            self.price = round(price, 2)
             self.units = total_units
 
         return pnl
@@ -30,7 +31,7 @@ class Position(motorengine.Document):
 
 
 class Portfolio(motorengine.Document):
-    user = motorengine.IntField(required=True)
+    user = motorengine.StringField(max_length=128, required=True)
     cash = motorengine.IntField(default=1000000)
     positions = motorengine.ListField(motorengine.EmbeddedDocumentField(Position))
 
@@ -66,7 +67,7 @@ class Portfolio(motorengine.Document):
 
     def serialize(self):
         return {
-            'user': self.user,
+            # 'user': self.user,
             'cash': self.cash,
             'positions': [p.serialize() for p in self.positions],
         }
