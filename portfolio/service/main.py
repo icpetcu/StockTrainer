@@ -18,7 +18,6 @@ class MainHandler(tornado.web.RequestHandler):
         except:
             return None
 
-
     async def get(self):
         user = self.get_user()
         if user is None:

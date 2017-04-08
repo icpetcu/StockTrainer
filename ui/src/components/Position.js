@@ -33,7 +33,7 @@ export class Position extends React.Component {
             <tr>
                 <td> {this.props.sym} </td>
                 <td> {this.props.units} </td>
-                <td> {this.props.price} </td>
+                <td> {parseFloat(this.props.price).toFixed(2)} </td>
                 <td className={pnlClass}> {dollars + Number(Math.abs(pnl)).toLocaleString()} </td>
                 <td>
                     <input type="text" placeholder="units" maxLength="4" style={{width: '50px'}}

@@ -34,8 +34,8 @@ class StreamHandler(tornado.web.RequestHandler):
         # Send retry option to client
         await self.publish()
 
-        ts = time.time() - 120  # last 2 minutes
-        collection = self.settings['db'].prices
+        ts = time.time() - 1800  # last 30 minutes
+        collection = self.settings['db'].news
         cursor = collection.find({'ts': {'$gt': ts}}, cursor_type=CursorType.TAILABLE_AWAIT)
         while self.stream:
             if not cursor.alive:

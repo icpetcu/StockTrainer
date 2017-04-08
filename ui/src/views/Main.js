@@ -21,7 +21,7 @@ export class Main extends React.Component {
         cst.STOCKS.map((e) => {
             this.state.priceCurves[e] = [];
             this.state.currentPrices[e] = 0;
-        });
+        })
     }
 
     componentDidMount() {
@@ -76,7 +76,14 @@ export class Main extends React.Component {
     }
 
     streamNews() {
+        ApiStream.fetch('news', (data) => {
+            let body = data.body;
+            let ts = data.ts;
 
+            let news = this.state.news;
+            news.push({body: body, ts: ts * 1000});
+            this.setState({news: news});
+        })
     }
 
     render() {
@@ -106,7 +113,7 @@ export class Main extends React.Component {
                         </div>
                         <hr />
 
-                        <NewsContainer />
+                        <NewsContainer data={this.state.news} />
                     </div>
 
                     <div className="w3-col m4 w3-center">

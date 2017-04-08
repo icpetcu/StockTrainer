@@ -3,7 +3,7 @@ import motor
 import tornado.ioloop
 import tornado.web
 
-from consumer import fetch_prices
+from consumer import fetch_news
 from stream import StreamHandler
 
 
@@ -25,10 +25,10 @@ def main():
     app = tornado.web.Application([
         (r"/", StreamHandler),
     ], db=db)
-    app.listen(8004)
+    app.listen(8005)
 
     io_loop = tornado.ioloop.IOLoop.current()
-    io_loop.spawn_callback(fetch_prices, db=db)
+    io_loop.spawn_callback(fetch_news, db=db)
     io_loop.start()
 
 

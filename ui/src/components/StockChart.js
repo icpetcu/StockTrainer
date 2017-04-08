@@ -63,7 +63,7 @@ export class StockChart extends React.Component {
 
         chartData.labels = this.props.data.map((e) => e[0]);
         chartData.datasets[0].data = this.props.data.map((e) => e[1]);
-        chartOptions.title.text = this.props.stock + ' ' + this.props.price;
+        chartOptions.title.text = this.props.stock + ' ' + parseFloat(this.props.price).toFixed(2);
 
         return (
             <div className="w3-container" style={{margin: '50px 0px 100px 0px'}}>
