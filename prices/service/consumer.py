@@ -22,6 +22,6 @@ async def fetch_prices(*args, **kwargs):
         for message in queue.receive_messages(WaitTimeSeconds=1, VisibilityTimeout=2):
             doc = json.loads(message.body)
             doc['ts'] = time.time()
-            await db.prices_test.insert_one(doc)
+            await db.prices.insert_one(doc)
             message.delete()
         await tornado.gen.sleep(1)

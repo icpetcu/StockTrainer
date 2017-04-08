@@ -3,7 +3,5 @@
 *.pyc
 *.idea
 *.DS_Store
-portfolio/venv/
-prices/venv/
-prices/service/aws_config.py
+venvs/
 ui/node_modules/

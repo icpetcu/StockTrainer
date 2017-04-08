@@ -33,7 +33,7 @@ class StreamHandler(tornado.web.RequestHandler):
         await self.publish()
 
         ts = 0
-        collection = self.settings['db'].prices_test
+        collection = self.settings['db'].prices
         cursor = collection.find({'ts': {'$gt': ts}}, cursor_type=CursorType.TAILABLE_AWAIT)
         while self.stream:
             if not cursor.alive:

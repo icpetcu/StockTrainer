@@ -8,7 +8,7 @@ class Position(motorengine.Document):
 
     def update(self, units, price):
         if self.units + units < 0:
-            raise Exception('Not enough units!')
+            raise Exception('Position limit exceeded!')
 
         if units < 0:
             pnl = units * (price - float(self.price))
@@ -37,11 +37,11 @@ class Portfolio(motorengine.Document):
 
     async def make_deal(self, sym, units, price):
         if units == 0:
-            raise Exception('Units cannot be zero!')
+            raise Exception('Amount must be positive!')
 
         amount = units * price
         if amount > self.cash:
-            raise Exception('Not enough cash!')
+            raise Exception('Cash limit exceeded!')
 
         pnl = 0
         for position in self.positions:
@@ -52,7 +52,7 @@ class Portfolio(motorengine.Document):
                 break
         else:
             if units < 0:
-                raise Exception('Not enough units!')
+                raise Exception('Position limit exceeded!')
             else:
                 self.positions.append(Position(symbol=sym, units=units, price=price))
 
