@@ -54,12 +54,16 @@ export class StockChart extends React.Component {
                         maxTicksLimit: 12
                     }
                 }]
+            },
+            animation: {
+                duration: 10,
+                easing: 'linear'
             }
         };
 
         chartData.labels = this.props.data.map((e) => e[0]);
         chartData.datasets[0].data = this.props.data.map((e) => e[1]);
-        chartOptions.title.text = this.props.stock;
+        chartOptions.title.text = this.props.stock + ' ' + this.props.price;
 
         return (
             <div className="w3-container" style={{margin: '50px 0px 100px 0px'}}>

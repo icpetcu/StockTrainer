@@ -10,18 +10,18 @@ def main():
         sqs = boto3.resource('sqs')
         queue = sqs.get_queue_by_name(QueueName='prices.fifo')
     else:
-        sqs = boto3.resource('sqs', {
+        sqs = boto3.resource('sqs', **{
             'region_name': 'us-west-2',
             'aws_access_key_id': '',
             'aws_secret_access_key': '',
-            'endpoint_url': 'http://localhost:5000',
+            'endpoint_url': 'http://10.200.10.1:5000',
         })
         queue = sqs.create_queue(QueueName='prices.fifo')
 
     while True:
         message = {
-            'sym': 'FB',
-            'price': random.randint(1000, 4000) * 0.0001,
+            'sym': random.choice(['FB', 'TSLA', 'GOOG', 'AAPL']),
+            'price': random.randint(100, 110),
         }
         queue.send_message(MessageBody=json.dumps(message), MessageGroupId='prices')
         time.sleep(2)

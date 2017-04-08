@@ -15,7 +15,7 @@ class MainHandler(tornado.web.RequestHandler):
 
 def main():
     db_name = os.environ.get('DB_NAME', 'test')
-    db_host = os.environ.get('DB_HOST', 'localhost')
+    db_host = os.environ.get('DB_HOST', '10.200.10.1')
     db_port = os.environ.get('DB_PORT', '27017')
     db_user = os.environ.get('DB_USER', '')
     db_password = os.environ.get('DB_PASSWORD', '')
@@ -29,8 +29,8 @@ def main():
         db = motor.motor_tornado.MotorClient(db_url)[db_name]
 
     app = tornado.web.Application([
-        (r"/stream", StreamHandler),
-        (r"/", MainHandler),
+        # (r"/stream", StreamHandler),
+        (r"/", StreamHandler),
     ], db=db)
     app.listen(8004)
 

@@ -21,7 +21,7 @@ class StreamHandler(tornado.web.RequestHandler):
     async def publish(self, message=None):
         try:
             if message is not None:
-                self.sse.add_message('price', message)
+                self.sse.add_message('message', message)
             for item in self.sse:
                 self.write(item)
             await self.flush()
