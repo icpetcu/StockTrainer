@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Disertation Project",
   "scripts": {
-    "start": "webpack-dev-server --port 3000"
+    "start": "webpack-dev-server --port 3000",
+    "prod": "webpack --config webpack.prod.js"
   },
   "author": "Ion Petcu",
   "license": "ISC",
