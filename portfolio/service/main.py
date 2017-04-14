@@ -59,17 +59,19 @@ def main():
     db_user = os.environ.get('DB_USER', '')
     db_password = os.environ.get('DB_PASSWORD', '')
 
+    credentials = None if not db_user else '{0}:{1}@'.format(db_user, db_password)
+    if credentials is not None:
+        db_url = 'mongodb://{0}{1}:{2}/{3}'.format(credentials, db_host, db_port, db_name)
+    else:
+        db_url = 'mongodb://{0}:{1}/'.format(db_host, db_port)
+
     app = tornado.web.Application([
         (r"/", MainHandler),
     ])
     app.listen(8003)
 
     io_loop = tornado.ioloop.IOLoop.current()
-    if db_user and db_password:
-        motorengine.connect(db_name, host=db_host, port=int(db_port),
-                            username=db_user, password=db_password, io_loop=io_loop)
-    else:
-        motorengine.connect(db_name, host=db_host, port=int(db_port), io_loop=io_loop)
+    motorengine.connect(db_name, host=db_url, io_loop=io_loop)
     io_loop.start()
 
 

@@ -17,10 +17,10 @@ def main():
     credentials = None if not db_user else '{0}:{1}@'.format(db_user, db_password)
     if credentials is not None:
         db_url = 'mongodb://{0}{1}:{2}/{3}'.format(credentials, db_host, db_port, db_name)
-        db = motor.motor_tornado.MotorClient(db_url)
     else:
         db_url = 'mongodb://{0}:{1}/'.format(db_host, db_port)
-        db = motor.motor_tornado.MotorClient(db_url)[db_name]
+
+    db = motor.motor_tornado.MotorClient(db_url)[db_name]
 
     app = tornado.web.Application([
         (r"/", StreamHandler),
