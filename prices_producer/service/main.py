@@ -31,7 +31,7 @@ def stream_prices(queue, sym, prices):
 
 def main():
     if os.environ.get('ENV') == 'production':
-        sqs = boto3.resource('sqs')
+        sqs = boto3.resource('sqs', region_name='us-west-2')
         queue = sqs.get_queue_by_name(QueueName='prices.fifo')
     else:
         sqs = boto3.resource('sqs', **{
