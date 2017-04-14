@@ -1,8 +1,8 @@
 easydict==1.6
 greenlet==0.4.12
-motor==0.2
+motor==0.7
 motorengine==0.9.1
 PyJWT==1.4.2
-pymongo==2.7
+pymongo==2.9.4
 six==1.10.0
 tornado==4.4.2
