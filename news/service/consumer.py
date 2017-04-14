@@ -8,7 +8,7 @@ import tornado.gen
 async def fetch_news(*args, **kwargs):
     db = kwargs['db']
     if os.environ.get('ENV') == 'production':
-        sqs = boto3.resource('sqs')
+        sqs = boto3.resource('sqs', region_name='us-west-2')
     else:
         sqs = boto3.resource('sqs', **{
             'region_name': 'us-west-2',
