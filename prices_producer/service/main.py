@@ -24,9 +24,9 @@ def stream_prices(queue, sym, prices):
     while True:
         for price in prices:
             message = {'sym': sym, 'price': price}
-            queue.send_message(MessageBody=json.dumps(message), MessageGroupId='prices')
+            queue.send_message(MessageBody=json.dumps(message), MessageGroupId='prices',
+                               MessageDeduplicationId=str(time.time()))
             time.sleep(1 + random.random())
-        time.sleep(1)
 
 
 def main():

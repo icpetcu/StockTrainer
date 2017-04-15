@@ -29,9 +29,9 @@ def main():
     while True:
         for body in news:
             message = {'body': body}
-            queue.send_message(MessageBody=json.dumps(message), MessageGroupId='news')
+            queue.send_message(MessageBody=json.dumps(message), MessageGroupId='news',
+                               MessageDeduplicationId=str(time.time()))
             time.sleep(60)  # 1 minute
-        time.sleep(1)
 
 
 if __name__ == '__main__':

@@ -19,9 +19,9 @@ async def fetch_news(*args, **kwargs):
 
     queue = sqs.get_queue_by_name(QueueName='news.fifo')
     while True:
-        for message in queue.receive_messages(WaitTimeSeconds=1, VisibilityTimeout=2):
+        for message in queue.receive_messages(WaitTimeSeconds=2, VisibilityTimeout=2):
             doc = json.loads(message.body)
             doc['ts'] = time.time()
             await db.news.insert_one(doc)
             message.delete()
-        await tornado.gen.sleep(1)
+        await tornado.gen.sleep(0.2)
