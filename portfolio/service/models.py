@@ -57,7 +57,7 @@ class Portfolio(motorengine.Document):
                 self.positions.append(Position(symbol=sym, units=units, price=price))
 
         self.cash -= amount
-        self.cash += pnl
+        # self.cash += pnl
         await self.save()
 
     async def reset(self):
