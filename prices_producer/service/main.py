@@ -8,7 +8,7 @@ from threading import Thread
 
 
 def load_prices():
-    stocks = ['TSLA', 'FB', 'AAPL', 'GOOG']
+    stocks = ['TSLA', 'FB', 'GM', 'GE']
     prices = {}
 
     data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
